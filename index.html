@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAKSHANA — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #e0f7fa);
+      color: #333;
+      line-height: 1.6;
+    }
+    a { color: #0288d1; text-decoration: none; }
+    header, section, footer { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    header { display: flex; justify-content: space-between; align-items: center; }
+    nav ul { display: flex; gap: 15px; list-style: none; padding: 0; margin: 0; }
+    h1, h2, h3 { margin: 10px 0; }
+    .hero, .projects, .skills, .contact { margin-top: 30px; }
+    .card { background: #ffffffdd; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-pill { background: #e0f7fa; color: #0288d1; padding: 6px 10px; border-radius: 8px; font-size: 13px; }
+    input, textarea, button { padding: 10px; border-radius: 6px; border: 1px solid #ccc; width: 100%; margin-bottom: 10px; font-family: inherit; }
+    input, textarea { background: #ffffffee; }
+    button { background: #0288d1; color: #fff; border: none; cursor: pointer; transition: 0.2s; }
+    button:hover { background: #0277bd; }
+    footer { text-align: center; margin-top: 50px; font-size: 14px; color: #555; }
+
+    @media (max-width:600px){
+      header { flex-direction: column; gap: 10px; }
+      nav ul { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h2>LAKSHANA</h2>
+      <small>Web Developer • UI/UX • Full-stack learner</small>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <section id="about" class="hero">
+    <h1>Hi, I’m Lakshana</h1>
+    <p>I build beautiful & functional web experiences. I specialize in HTML, CSS, JavaScript and modern front-end frameworks. I also work with Java, Python, C#, PHP and SQL.</p>
+    <p><strong>Location:</strong> Jaffna, Sri Lanka • <strong>Open to:</strong> Remote work</p>
+  </section>
+
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    
+    <div class="card">
+      <h3>Text Editor Application</h3>
+      <p>A lightweight, user-friendly text editor that creates and saves text files in the browser.</p>
+      <p><a href="https://lu6-ux.github.io/text-editor-Application/" target="_blank">View Live App</a> | <a href="https://github.com/lu6-ux/text-editor-application" target="_blank">GitHub</a></p>
+      <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+    </div>
+
+    <div class="card">
+      <h3>Lite Hotel Reservation System</h3>
+      <p>A booking and management system (in progress) with search, booking, and staff dashboard.</p>
+      <p><strong>Tech:</strong> PHP / Java / C# / SQL</p>
+    </div>
+
+    <div class="card">
+      <h3>Smart Calendar App</h3>
+      <p>A task & events manager focusing on real-time updates and clean UI.</p>
+      <p><strong>Tech:</strong> Java / Python / C# / UI/UX</p>
+    </div>
+  </section>
+
+  
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill-pill">HTML</div>
+      <div class="skill-pill">CSS</div>
+      <div class="skill-pill">JavaScript</div>
+      <div class="skill-pill">React / Next.js</div>
+      <div class="skill-pill">Java</div>
+      <div class="skill-pill">Python</div>
+      <div class="skill-pill">C#</div>
+      <div class="skill-pill">SQL & Databases</div>
+      <div class="skill-pill">UI/UX Design</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Phone: <a href="tel:+94705758586">070 5758 586</a> • Email: <a href="mailto:lakshanagnanasekaram29@gmail.com">lakshanagnanasekaram29@gmail.com</a></p>
+    
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <input id="name" required placeholder="Your name">
+      <input id="emailField" type="email" required placeholder="Email">
+      <textarea id="message" rows="4" placeholder="Message"></textarea>
+      <button type="submit">Send Message</button>
+      <div id="sentNote" style="display:none; color:#0288d1;">Message sent ✓</div>
+    </form>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Lakshana
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('emailField').value.trim();
+      if(!name || !email){ alert('Please enter your name and email.'); return; }
+      const note = document.getElementById('sentNote');
+      note.style.display = 'block';
+      setTimeout(()=> note.style.display='none', 3000);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
