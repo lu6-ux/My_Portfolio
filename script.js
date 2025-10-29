@@ -7,20 +7,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-function openProjectModal(url){
+// Open project modal
+function openProjectModal(url) {
   const modal = document.getElementById('projectModal');
   const iframe = document.getElementById('projectIframe');
-  modal.classList.add('open');            
-  let loaded = false;
 
+  if(modal.classList.contains('open')) return; // prevent multiple opens
+  modal.classList.add('open');            
+
+  let loaded = false;
   iframe.src = url;
 
- 
   const onLoad = () => {
     loaded = true;
     iframe.removeEventListener('load', onLoad);
   };
+
   iframe.addEventListener('load', onLoad);
+
+  // Fallback if embedding is blocked
   const fallbackTimer = setTimeout(() => {
     if(!loaded){
       closeProjectModal();
@@ -28,11 +33,22 @@ function openProjectModal(url){
       alert('Preview blocked from embedding — opened the site in a new tab.');
     }
   }, 1500);
+
+  
+  modal.querySelector('.modal-overlay').addEventListener('click', closeProjectModal);
+
+  document.addEventListener('keydown', function escHandler(e) {
+    if(e.key === "Escape") {
+      closeProjectModal();
+      document.removeEventListener('keydown', escHandler);
+    }
+  });
 }
 
-function closeProjectModal(){
+ss
+function closeProjectModal() {
   const modal = document.getElementById('projectModal');
   const iframe = document.getElementById('projectIframe');
   iframe.src = 'about:blank';
-  modal.style.display = 'none';
+  modal.classList.remove('open');
 }
