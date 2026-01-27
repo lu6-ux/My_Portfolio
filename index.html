@@ -3,176 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LAKSHANA — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>LAKSHANA — AI Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <style>
-/* Reset & Base */
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-body { font-family: "Poppins", sans-serif; background: linear-gradient(135deg, #f0f4ff, #e0f7fa); color: #333; line-height: 1.6; overflow-x: hidden; }
-a { color: #0288d1; text-decoration: none; transition: 0.3s; }
-a:hover { color: #01579b; }
-
-/* Header */
-header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.05); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-radius:10px; transition: all 0.3s; }
-header.scrolled { box-shadow: 0 6px 20px rgba(0,0,0,0.15); background: #ffffff; }
-nav ul { display: flex; gap: 20px; list-style: none; }
-nav li a { font-weight: 500; padding: 8px 12px; border-radius: 6px; }
-nav li a.active { background: #0288d1; color: #fff; }
-
-/* Hero */
-.hero { text-align: center; margin-top: 60px; animation: fadeIn 1.5s ease; position: relative; }
-.hero h1 { font-size: 2.8rem; margin-bottom: 15px; color: #01579b; }
-.hero p { font-size: 1.1rem; margin-bottom: 8px; }
-.hero strong { color: #0288d1; }
-.hero .typed { color: #26c6da; font-weight: 600; }
-
-/* Button */
-a.cv-button { display:inline-block; margin-top:20px; padding:12px 20px; background: linear-gradient(135deg, #0288d1, #26c6da); color:#fff; border-radius:8px; font-weight:600; transition:0.3s; }
-a.cv-button:hover { background: linear-gradient(135deg,#01579b,#00acc1); transform: scale(1.05); }
-
-/* Sections */
-section { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-
-/* Projects */
-.projects h2, .skills h2, .contact h2 { text-align: center; font-size: 2rem; margin-bottom: 25px; color: #01579b; }
-.card { background: #ffffffdd; padding: 25px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; }
-.card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-.card h3 { color: #0288d1; margin-bottom: 10px; }
-.card a { margin-right: 10px; }
-
-/* Skills */
-.skills-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.skill-pill { background: linear-gradient(135deg, #0288d1, #26c6da); color: #fff; padding: 8px 14px; border-radius: 20px; font-size: 14px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.2s; }
-.skill-pill:hover { transform: scale(1.05); }
-
-/* Contact */
-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-input, textarea { padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit; transition: 0.3s; }
-input:focus, textarea:focus { border-color: #0288d1; outline: none; box-shadow: 0 0 10px rgba(2,136,209,0.3); }
-button { background: linear-gradient(135deg, #0288d1, #26c6da); color: #fff; font-weight: 600; cursor: pointer; transition: 0.3s; }
-button:hover { background: linear-gradient(135deg, #01579b, #00acc1); }
-#sentNote { text-align: center; font-weight: 600; margin-top: 10px; }
-
-/* Footer */
-footer { text-align: center; margin-top: 60px; font-size: 14px; color: #555; position: relative; }
-
-/* Scroll Animations */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Responsive */
-@media (max-width: 700px) {
-  header { flex-direction: column; gap: 10px; }
-  nav ul { flex-direction: column; gap: 10px; }
-  .hero h1 { font-size: 2rem; }
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#e0f7fa,#f0f4ff);color:#333;overflow-x:hidden;transition:0.3s;}
+a{text-decoration:none;color:#0288d1;transition:0.3s;}
+a:hover{color:#01579b;}
+button{cursor:pointer;}
+header{position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);z-index:1000;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);transition:0.3s;}
+header.scrolled{box-shadow:0 8px 25px rgba(0,0,0,0.15);background:rgba(255,255,255,0.9);}
+header h2{font-weight:700;color:#01579b;}
+header small{font-weight:500;color:#555;}
+nav ul{display:flex;gap:20px;list-style:none;}
+nav li a{font-weight:500;padding:8px 12px;border-radius:6px;transition:0.3s;}
+nav li a.active{background:#0288d1;color:#fff;}
+.hero{text-align:center;margin-top:60px;padding:80px 20px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,#0288d1,#26c6da,#0288d1);opacity:0.15;filter:blur(100px);z-index:0;animation:gradientMove 15s linear infinite;}
+.hero img{width:180px;height:180px;object-fit:cover;border-radius:50%;border:4px solid #0288d1;margin-bottom:20px;box-shadow:0 10px 25px rgba(2,136,209,0.3);position:relative;z-index:1;transition:0.3s;}
+.hero img:hover{transform:scale(1.05);}
+.hero h1{font-size:3rem;background:linear-gradient(90deg,#0288d1,#26c6da);-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;z-index:1;}
+.hero p{font-size:1.15rem;margin:10px 0;color:#555;position:relative;z-index:1;}
+a.cv-button{display:inline-block;margin-top:20px;padding:12px 25px;background:linear-gradient(135deg,#0288d1,#26c6da);color:#fff;border-radius:12px;font-weight:600;transition:0.3s;box-shadow:0 8px 25px rgba(2,136,209,0.3);position:relative;z-index:1;}
+a.cv-button:hover{background:linear-gradient(135deg,#01579b,#00acc1);transform:scale(1.05);}
+.socials{margin-top:20px;display:flex;justify-content:center;gap:20px;position:relative;z-index:1;}
+.socials a{color:#0288d1;font-size:1.8rem;transition:0.3s;}
+.socials a:hover{color:#01579b;transform:scale(1.2);}
+section{max-width:1000px;margin:40px auto;padding:60px 30px;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-radius:25px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:0.3s;}
+section:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.15);}
+h2{text-align:center;font-size:2.2rem;margin-bottom:40px;color:#01579b;position:relative;}
+h2::after{content:'';width:60px;height:4px;background:#0288d1;display:block;margin:10px auto 0;border-radius:2px;}
+.project-card{display:block;background:rgba(255,255,255,0.85);border-radius:20px;padding:25px;margin-bottom:25px;box-shadow:0 12px 28px rgba(0,0,0,0.1);transition:0.4s;color:#333;text-decoration:none;overflow:hidden;}
+.project-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 18px 40px rgba(2,136,209,0.25);}
+.project-card h3{color:#0288d1;margin-bottom:12px;}
+.project-card p{margin-bottom:10px;}
+.skills-list{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}
+.skill-pill{background:linear-gradient(135deg,#0288d1,#26c6da);color:#fff;padding:12px 22px;border-radius:25px;font-size:14px;font-weight:500;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:transform 0.2s;}
+.skill-pill:hover{transform:scale(1.1);}
+form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:15px;}
+input,textarea{padding:14px;border-radius:12px;border:1px solid #ccc;font-family:inherit;transition:0.3s;}
+input:focus,textarea:focus{border-color:#0288d1;outline:none;box-shadow:0 0 15px rgba(2,136,209,0.3);}
+button{background:linear-gradient(135deg,#0288d1,#26c6da);color:#fff;font-weight:600;padding:12px;border-radius:12px;transition:0.3s;box-shadow:0 6px 20px rgba(2,136,209,0.3);}
+button:hover{background:linear-gradient(135deg,#01579b,#00acc1);transform:scale(1.05);}
+#sentNote{text-align:center;font-weight:600;margin-top:10px;color:green;}
+footer{text-align:center;margin-top:60px;font-size:14px;color:#555;}
+footer a{color:#0288d1;}
+footer a:hover{color:#01579b;}
+#backToTop{position:fixed;bottom:30px;right:30px;background:#0288d1;color:#fff;padding:14px 16px;border-radius:50%;font-size:18px;cursor:pointer;display:none;box-shadow:0 6px 15px rgba(0,0,0,0.2);transition:0.3s;z-index:999;}
+#backToTop:hover{background:#01579b;transform:scale(1.1);}
+@keyframes gradientMove{0%{transform:translateX(-50%);}50%{transform:translateX(50%);}100%{transform:translateX(-50%);}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:700px){header{flex-direction:column;gap:10px;}nav ul{flex-direction:column;gap:10px;}.hero h1{font-size:2rem;}.project-card{padding:18px;}.skills-list{gap:10px;}}
 </style>
 </head>
 <body>
 
 <header id="header">
-  <div>
-    <h2>LAKSHANA</h2>
-    <small>Quality Assurance • Web Developer</small>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-  </nav>
+<div>
+<h2>LAKSHANA</h2>
+<small>AI Enthusiast • Backend Developer Intern</small>
+</div>
+<nav>
+<ul>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#projects" class="nav-link">Projects</a></li>
+<li><a href="#skills" class="nav-link">Skills</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
+</nav>
 </header>
 
-<section id="about" class="hero">
-  <h1>Hi, I’m Lakshana</h1>
-  <p>I build beautiful & functional web experiences. I specialize in <strong>Quality assurance</strong> and <strong>Project management</strong> and also work with <strong>HTML, CSS, JavaScript</strong>, and modern front-end frameworks. I also use <strong>Java, Python, C#, PHP, SQL</strong>.</p>
-  <p><strong>Location:</strong> Jaffna, Sri Lanka • <strong>Open to:</strong> Remote work</p>
-  <a href="Lakshana_CV.pdf" target="_blank" class="cv-button">View My CV</a>
+<section id="about" class="hero" data-aos="fade-up">
+<img src="Port.png" alt="Lakshana Portfolio Photo">
+<h1>Hi, I’m Lakshana</h1>
+<p>I’m an <strong>AI enthusiast</strong> passionate about <strong>Machine Learning</strong> & <strong>Data Analysis</strong>.</p>
+<p>Currently a <strong>Backend Developer Intern</strong> exploring AI applications.</p>
+<p><strong>Location:</strong> Jaffna, Sri Lanka • <strong>Open to:</strong> Remote work</p>
+<p>I’m a <span id="typed"></span></p>
+<a href="Lakshana_CV.pdf" target="_blank" class="cv-button">View My CV</a>
+<div class="socials">
+<a href="https://github.com/lu6-ux" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/lakshana-gnanasekaram-979b58361/" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
 </section>
 
-<section id="projects" class="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Text Editor Application</h3>
-    <p>A lightweight, user-friendly text editor that creates and saves text files in the browser.</p>
-    <p><a href="https://lu6-ux.github.io/text-editor-Application/" target="_blank">View Live App</a> | <a href="https://github.com/lu6-ux/text-editor-application" target="_blank">GitHub</a></p>
-    <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
-  </div>
-  <div class="card">
-    <h3>Lite Hotel Reservation System</h3>
-    <p>A booking and management system (in progress) with search, booking, and staff dashboard.</p>
-    <p><strong>Tech:</strong> PHP / Java / C# / SQL</p>
-  </div>
-  <div class="card">
-    <h3>Smart Calendar App</h3>
-    <p>A task & events manager focusing on real-time updates and clean UI.</p>
-    <p><strong>Tech:</strong> Java / Python / C# / UI/UX</p>
-  </div>
+<section id="projects" data-aos="fade-up">
+<h2>Projects</h2>
+<a href="https://lu6-ux.github.io/text-editor-Application/" target="_blank" class="project-card">
+<h3>Text Editor App</h3>
+<p>Lightweight browser-based text editor with save & open file functionalities.</p>
+<p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+</a>
+<a href="https://www.linkedin.com/feed/update/urn:li:activity:7391793202242150400/" target="_blank" class="project-card">
+<h3>Smart Calendar App</h3>
+<p>Task & events manager focusing on real-time updates and clean UI.</p>
+<p><strong>Tech:</strong> C# / SQLite / UI/UX</p>
+</a>
+<div class="project-card">
+<h3>Lite Hotel Reservation System</h3>
+<p>Booking & management system (in progress) with search, booking & staff dashboard.</p>
+<p><strong>Tech:</strong> React.js / Node.js / PostgreSQL</p>
+</div>
 </section>
 
-<section id="skills" class="skills">
-  <h2>Skills</h2>
-  <div class="skills-list">
-    <div class="skill-pill">HTML</div>
-    <div class="skill-pill">CSS</div>
-    <div class="skill-pill">JavaScript</div>
-    <div class="skill-pill">React / Next.js</div>
-    <div class="skill-pill">Java</div>
-    <div class="skill-pill">Python</div>
-    <div class="skill-pill">C#</div>
-    <div class="skill-pill">SQL & Databases</div>
-    <div class="skill-pill">UI/UX Design</div>
-  </div>
+<section id="skills" data-aos="fade-up">
+<h2>Skills</h2>
+<div class="skills-list">
+<div class="skill-pill">HTML</div>
+<div class="skill-pill">CSS</div>
+<div class="skill-pill">JavaScript</div>
+<div class="skill-pill">React / Next.js</div>
+<div class="skill-pill">Java</div>
+<div class="skill-pill">Python</div>
+<div class="skill-pill">C#</div>
+<div class="skill-pill">Adobe Illustrator</div>
+<div class="skill-pill">Figma</div>
+<div class="skill-pill">SQL & Databases</div>
+<div class="skill-pill">Machine Learning</div>
+<div class="skill-pill">Data Analysis</div>
+</div>
 </section>
 
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>Phone: <a href="tel:+94705758586">070 5758 586</a> • Email: <a href="mailto:lakshanagnanasekaram29@gmail.com">lakshanagnanasekaram29@gmail.com</a>• LinkedIn: <a href="https://www.linkedin.com/in/lakshana-gnanasekaram-979b58361/">https://www.linkedin.com/in/lakshana-gnanasekaram-979b58361/</a></p>
-  <form id="contactForm">
-    <input id="name" required placeholder="Your name">
-    <input id="emailField" type="email" required placeholder="Email">
-    <textarea id="message" rows="4" placeholder="Message"></textarea>
-    <button type="submit">Send Message</button>
-    <div id="sentNote" style="display:none;">Message sent ✓</div>
-  </form>
+<section id="contact" data-aos="fade-up">
+<h2>Contact</h2>
+<p>Phone: <a href="tel:+94705758586">070 5758 586</a> • Email: <a href="mailto:lakshanagnanasekaram29@gmail.com">lakshanagnanasekaram29@gmail.com</a></p>
+<form id="contactForm">
+<input id="name" required placeholder="Your Name">
+<input id="emailField" type="email" required placeholder="Email">
+<textarea id="message" rows="4" placeholder="Message"></textarea>
+<button type="submit">Send Message</button>
+<div id="sentNote" style="display:none;">Message sent ✓</div>
+</form>
 </section>
 
 <footer>
-  &copy; <span id="year"></span> Lakshana
+&copy; <span id="year"></span> Lakshana • <a href="#header"><i class="fas fa-arrow-up"></i> Back to top</a>
 </footer>
 
+<div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
-const header = document.getElementById('header');
-
-window.addEventListener('scroll', () => {
-  const scrollPos = window.scrollY + 100;
-  sections.forEach(sec => {
-    if(scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight){
-      navLinks.forEach(a => a.classList.remove('active'));
-      document.querySelector(`a[href="#${sec.id}"]`).classList.add('active');
-    }
-  });
-  header.classList.toggle('scrolled', window.scrollY > 50);
+AOS.init();
+new Typed('#typed',{strings:["AI Enthusiast","Machine Learning Explorer","Backend Developer Intern"],typeSpeed:70,backSpeed:40,loop:true});
+document.getElementById('year').textContent=new Date().getFullYear();
+const sections=document.querySelectorAll('section');
+const navLinks=document.querySelectorAll('.nav-link');
+const header=document.getElementById('header');
+const backBtn=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{
+const scrollPos=window.scrollY+100;
+sections.forEach(sec=>{if(scrollPos>=sec.offsetTop&&scrollPos<sec.offsetTop+sec.offsetHeight){navLinks.forEach(a=>a.classList.remove('active'));document.querySelector(`a[href="#${sec.id}"]`).classList.add('active');}});
+header.classList.toggle('scrolled',window.scrollY>50);
+backBtn.style.display=(window.scrollY>300)?'block':'none';
 });
-
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('emailField').value.trim();
-  if(!name || !email){ alert('Please enter your name and email.'); return; }
-  const note = document.getElementById('sentNote');
-  note.style.display = 'block';
-  setTimeout(()=> note.style.display='none', 3000);
-  e.target.reset();
-});
+backBtn.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('emailField').value.trim();if(!name||!email){alert('Please enter your name and email.');return;}const note=document.getElementById('sentNote');note.style.display='block';setTimeout(()=>note.style.display='none',3000);e.target.reset();});
 </script>
-
 </body>
 </html>
