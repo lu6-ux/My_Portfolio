@@ -1,3 +1,4 @@
+
 body { 
     margin: 0; 
     font-family: 'Poppins', sans-serif; 
@@ -5,9 +6,12 @@ body {
     color: #333; 
     scroll-behavior: smooth;
 }
-a { transition: 0.3s; }
-a:hover { color: #6c63ff; }
 
+a { 
+    transition: 0.3s; 
+    color: #6c63ff;
+}
+a:hover { color: #5a52e6; }
 
 header { 
     background: #6c63ff; 
@@ -18,13 +22,14 @@ header {
     top: 0; 
     z-index: 1000; 
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 header.scrolled { 
     background: #5a52e6; 
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
-
 
 header nav ul { 
     list-style: none; 
@@ -34,26 +39,28 @@ header nav ul {
     padding: 0; 
     margin: 10px 0 0 0; 
 }
+
 header nav ul li a { 
     color: white; 
     text-decoration: none; 
     font-weight: 500; 
-    padding: 6px 10px; 
-    border-radius: 6px; 
-    transition: background 0.3s, transform 0.2s;
+    padding: 8px 12px; 
+    border-radius: 8px; 
+    transition: background 0.3s, transform 0.2s, color 0.3s;
 }
-header nav ul li a:hover, header nav ul li a.active { 
+
+header nav ul li a:hover, 
+header nav ul li a.active { 
     background: #fff; 
     color: #6c63ff; 
     transform: scale(1.05);
 }
 
 section { 
-    padding: 60px 20px; 
+    padding: 60px 25px; 
     max-width: 900px; 
-    margin: auto; 
+    margin: 40px auto; 
     background: #fff; 
-    margin-bottom: 40px; 
     border-radius: 12px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
     transition: transform 0.3s, box-shadow 0.3s;
@@ -69,13 +76,15 @@ section:hover {
     background: #6c63ff; 
     color: #fff; 
     border: none; 
-    border-radius: 5px; 
+    border-radius: 6px; 
     cursor: pointer; 
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 .project button:hover { 
     background: #5a52e6; 
     transform: scale(1.05);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
 }
 
 #projectModal { 
@@ -87,24 +96,30 @@ section:hover {
     z-index: 9999; 
     animation: fadeIn 0.3s ease;
 }
-#projectModal.open { display: flex; }
+#projectModal.open { 
+    display: flex; 
+}
 
 #projectModal .modal-overlay { 
     position: absolute; 
     inset: 0; 
     background: rgba(0,0,0,0.7); 
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
+    transition: background 0.3s;
 }
 
 #projectModal .modal-content { 
     position: relative; 
     background: #fff; 
-    padding: 15px; 
+    padding: 20px; 
     border-radius: 12px; 
-    width: 90%; 
+    width: 95%; 
     max-width: 900px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     animation: slideUp 0.3s ease;
+    overflow: hidden;
 }
+
 #projectModal iframe { 
     width: 100%; 
     height: 70vh; 
@@ -115,22 +130,33 @@ section:hover {
 
 #projectModal .close-btn { 
     position: absolute; 
-    top: 10px; 
+    top: 12px; 
     right: 15px; 
-    font-size: 22px; 
+    font-size: 24px; 
     font-weight: bold; 
     color: #333; 
     cursor: pointer; 
-    transition: color 0.2s;
+    transition: color 0.2s, transform 0.2s;
 }
-#projectModal .close-btn:hover { color: #6c63ff; }
+#projectModal .close-btn:hover { 
+    color: #6c63ff; 
+    transform: scale(1.1);
+}
 
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
+
+@keyframes slideUp { 
+    from { transform: translateY(50px); opacity: 0; } 
+    to { transform: translateY(0); opacity: 1; } 
+}
 
 
 @media (max-width: 700px) {
     header nav ul { flex-direction: column; gap: 10px; }
     section { padding: 40px 15px; }
+    #projectModal .modal-content { padding: 15px; }
 }
